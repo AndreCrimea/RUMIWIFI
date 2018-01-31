@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+
+	"name": "RUMIWIFI",
+	"version": "1.6.7.2",
+	"description": "Переводчик китайской прошивки Xiaomi роутера. Работает офлайн. Не требует настрйки.",
+	"short_name": "RUMIWIFI русификатор",
+
+	"icons": { "16": "img/icon_16.png",
+		"48": "img/icon_48.png",
+		"128": "img/icon_128.png" 
+	},
+	"permissions": [
+		"activeTab",
+		"storage"
+	],
+	"web_accessible_resources": [
+		"lang/*.json", "img/page_logo.png", "img/logo.png", "img/pedanto.png"
+	],
+	"content_scripts": [ {
+		"all_frames": true,
+		"css": ["styles.css"],
+		"js": [ "js/jquery.js","js/content.js"],
+		"matches": [ "<all_urls>" ] 
+	} ],
+	"browser_action": {
+		"default_title": "RUMIWIFI",
+		"default_icon": "img/icon_16.png",
+		"default_popup": "popup.html"
+	}
+}

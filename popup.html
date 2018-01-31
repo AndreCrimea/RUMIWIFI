@@ -1,0 +1,96 @@
+<html lang="ru">
+	<head>
+		<title>RUMIWIFI</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				color: #FFF;
+			}
+			#wrapper {
+				background: #ff6709;
+				width: 300px;
+				padding: 20px;
+				border-radius: 5px;
+				font-family: Segoe UI, Arial;
+			}
+			#wrapper h1 {
+				font-size: 18px;
+			}
+			.lang {
+				position: absolute;
+				right: 200px;
+				top: 60px;
+			}
+			.lang select {
+				border: 0;
+				padding: 3px;
+				background: #ff6709;
+				color: #FFF;
+				outline: none;
+			}
+			.logo {
+				text-align: center;
+				padding: 10px 0 0 0;
+			}
+			.title {
+				text-align: center;
+			}
+			a {
+				color: #FFF;
+			}
+			.controls {
+				padding: 20px;
+				background: #ff7d2c;
+				margin: 0 0 15px 0;
+				text-align: center;
+			}
+			.footer {
+				position: relative;
+			}
+			.pedanto {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+			.justify {
+				text-align: justify;
+			}
+			button {
+				padding: 10px;
+				border: 0;
+				border-radius: 0px;
+				background: #ff6709;
+				color: #FFF;
+				outline: none;
+			}
+			button:hover, button.active {
+				background: #333;
+				cursor: pointer;
+			}
+			</style>
+			<script src = "js/jquery.js"></script>
+			<script src = "js/popup.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="lang">
+				<select name='lang' id='lang'>
+					<option value="en">English</option>
+					<option value="ru">Russian</option>
+				</select>
+			</div>
+			<div class="logo"><img src="img/logo.png"/></div>
+			<h1 class='title'>Переводчик RUMIWIFI</h1>
+			<p class='justify'>Плагин переводит интерфейс китайской прошивки роутера Xiaomi на русский язык. Более подробно о плагине RUMIWIFI читайте на <a href="https://pedanto.com/news/rumiwifi-plagin-rusifikacii-proshivki-xiaomi-routera.html" target="_blank">странице плагина</a>.</p>
+			<div class="controls">
+				<button id="chatOn">Включить чат</button> <button id="chatOff">Отключить чат</button>
+			</div>
+			<div class="footer">
+				<a class="pedanto" href="https://pedanto.com/index.html" target="_blank" title="WEB студия Pedanto"><img src="img/pedanto.png"/></a>
+				Facebook: <a href="https://www.facebook.com/JohnDicoPunch" target="_blank">Страница Автора</a>
+				<br/>
+				Поддержать: <a href="https://chrome.google.com/webstore/detail/rumiwifi/mbiehbednoakmhlmjcpgpciocekdjabp/reviews" target="_blank" title="Оценить плагин">Поставить 5 звезд</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+.d-bd #vasListUL {
+	display: none;
+}
+
+body #doc {
+-webkit-transition: .6s
+}
+
+body div:first-child#doc {
+	opacity: 0;
+}
