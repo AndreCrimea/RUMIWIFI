@@ -5,4 +5,4 @@
 
 Как устроен принцип перевода плагина
 
-[![Watch the video](https://img.youtube.com/vi/DW5795LW7fA/0.jpg)](http://youtu.be/DW5795LW7fA)
+[![Watch the video](https://img.youtube.com/vi/vMpAehNMl18/0.jpg)](http://youtu.be/vMpAehNMl18)
