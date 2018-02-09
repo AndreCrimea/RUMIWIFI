@@ -301,6 +301,7 @@
 			listOf += "label.k:contains('口'),";
 			listOf += ".panel-content .d-bd:contains('确'),";
 			listOf += "#natlist_port tr td:contains('TCP和UDP'),";
+			listOf += "#bandlist tr td:contains('没有设置信息'),";
 			listOf += ".btn span:contains('限速设置')";
 		
 			//Базовые замены
