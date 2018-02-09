@@ -50,6 +50,8 @@
 			listOf += "#testBand:contains('开'),";
 			listOf += "p:contains('自'),";
 			listOf += "h4:contains('家'),";
+			listOf += "span:contains('家'),";
+			listOf += "p:contains('家'),";
 			listOf += "#qosmode ul li:contains('模'),";
 			listOf += "#qosmode ul li:contains('先'),";
 			listOf += "h4:contains('根'),";
