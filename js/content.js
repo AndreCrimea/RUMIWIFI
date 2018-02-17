@@ -47,6 +47,8 @@
 			listOf += "#testBand:contains('开'),";
 			listOf += "p:contains('自'),";
 			listOf += "h4:contains('家'),";
+			listOf += "span#sysmenu:contains('家'),";
+			listOf += ".router.nav-tab.active p:contains('家'),";
 			listOf += "#qosmode ul li:contains('模'),";
 			listOf += "#qosmode ul li:contains('先'),";
 			listOf += "h4:contains('根'),";
@@ -297,7 +299,10 @@
 			listOf += ".beautify:contains('和'),";
 			listOf += "label.k:contains('口'),";
 			listOf += ".panel-content .d-bd:contains('确'),";
-			listOf += "#natlist_port tr td:contains('TCP和UDP')";
+			listOf += "#natlist_port tr td:contains('TCP和UDP'),";
+			listOf += "#bandlist tr td:contains('没有设置信息'),";
+			listOf += "#upnplist tr td:contains('没有UPnP设备'),";
+			listOf += "#btnBandset span:contains('限速设置')";
 		
 			//Базовые замены
 			$(listOf).each(function() {
