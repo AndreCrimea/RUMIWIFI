@@ -21,14 +21,11 @@
 	
 	domain = location.host;
 	if (domain == "miwifi.com") good = 1;
-	
 	title = $(document).find("title").text();
 	if (title == "小米路由器") good = 2;
-	
 	if ($("#wechatcode").text() == "官方微信") good = 3;
-	
 	if ($(".flash-tips h3").text() == "正在升级中") good = 4;
-	
+	if ("head:contains('miwifi.com')") good = 5;
 	if (good >= 1) {
 	
 	//Язык
