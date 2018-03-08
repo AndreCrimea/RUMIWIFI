@@ -390,4 +390,8 @@
 		$(".mod-set .hd h3").css("width", "auto");
 		
 	}
+	//Контрольный Opacity
+	setTimeout (function(){
+		$("#doc").css({"opacity": "1"});
+	}, 2000);
 })()
