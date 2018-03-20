@@ -35,6 +35,11 @@
 		
 		langFile = chrome.extension.getURL("lang/" + lang + ".json");
 		$.get(langFile, function(response) {
+			try {
+				obj = JSON.parse(response); 
+			} catch (e) {
+				obj = response;
+			}
 			obj = JSON.parse(response);
 			//span.v:contains('小'), span.v:contains('分'), span:contains('特'), .d-bd:contains('重'), p:contains('手'),
 			listOf = ".devnetinfo li span.v:contains('小'),";
