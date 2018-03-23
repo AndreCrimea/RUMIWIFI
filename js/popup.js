@@ -1,15 +1,8 @@
 $(document).ready(function() {
 	chrome.storage.local.get("extensionMode", function(results) {
         var mode = results.extensionMode;
-        switch(mode) {
-                // 0: off; 1: aspect; 2: zoom;
-            case 0:
-                $("#chatOff").addClass("active");
-                break;
-            case 1:
-                $("#chatOn").addClass("active");
-			break;
-        }
+		if (mode === undefined || mode == 1) $("#chatOn").addClass("active");
+		else if (mode == 0) $("#chatOff").addClass("active");
     });
 	$("#chatOff").click(function() {
         chrome.storage.local.set({"extensionMode": 0}, function() {
@@ -29,6 +22,8 @@ $(document).ready(function() {
 		if (mode) {
 			$("#lang").val(mode);
 		}
+		//Если не выбран выбираем дефольный
+		else $("#lang").val("ru");
 	});
 	
 	$("#lang").change(function() {
