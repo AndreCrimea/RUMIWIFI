@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	chrome.storage.local.get("extensionMode",function (results){
+	chrome.storage.local.get("extensionMode", function(results) {
         var mode = results.extensionMode;
         switch(mode) {
                 // 0: off; 1: aspect; 2: zoom;
@@ -12,7 +12,7 @@ $(document).ready(function() {
         }
     });
 	$("#chatOff").click(function() {
-        chrome.storage.local.set({"extensionMode":0},function (){
+        chrome.storage.local.set({"extensionMode": 0}, function() {
 			$("button").removeClass("active");
 			$("#chatOff").addClass("active");
         });
@@ -24,7 +24,7 @@ $(document).ready(function() {
         });
     });
 	
-	chrome.storage.local.get("rumiLang",function (results){
+	chrome.storage.local.get("rumiLang", function(results) {
 		var mode = results.rumiLang;
 		if (mode) {
 			$("#lang").val(mode);
