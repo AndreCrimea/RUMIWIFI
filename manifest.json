@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 
 	"name": "RUMIWIFI",
-	"version": "1.7.36",
+	"version": "1.7.37",
 	"description": "Переводчик китайской прошивки Xiaomi роутера. Работает офлайн. Не требует настройки.",
 	"short_name": "RUMIWIFI русификатор Xiaomi роутера",
 
