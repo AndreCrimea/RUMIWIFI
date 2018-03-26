@@ -1,5 +1,4 @@
 (function () {
-	console.log("Отладка: Начало скрипта");
 	//Функция замены текста
 	$myfn = function(target, result, selector) {
 		var object = $(selector+":contains("+target+")");
@@ -26,22 +25,15 @@
 	if ($("#wechatcode").text() == "官方微信") good = 3;
 	if ($(".flash-tips h3").text() == "正在升级中") good = 4;
 	if ($("head:contains('miwifi.com')").length > 0) good = 5;
-	console.log("Отладка: Статус good - " + good);
+
 	if (good >= 1) {
-	console.log("Отладка: good пройден");
 	//Язык
 	chrome.storage.local.get("rumiLang", function(results) {
-		console.log("Отладка: rumiLang пройден");
 		lang = results.rumiLang;
-		console.log("Отладка: язык до - " + lang);
 		if (!lang) lang = "ru";
-		console.log("Отладка: язык после - " + lang);
-		
 		langFile = chrome.extension.getURL("lang/" + lang + ".json");
 		
-		
 		$.getJSON(langFile, function(data) {
-			console.log("Отладка: Json файл получен");
 			obj = data;
 			//span.v:contains('小'), span.v:contains('分'), span:contains('特'), .d-bd:contains('重'), p:contains('手'),
 			listOf = ".devnetinfo li span.v:contains('小'),";
@@ -311,8 +303,6 @@
 			listOf += "#upnplist tr td:contains('没有UPnP设备'),";
 			listOf += "#btnBandset span:contains('限速设置')";
 			
-			console.log("Отладка: После списка замены");
-			
 			//Базовые замены
 			$(listOf).each(function() {
 				text = $(this).html();
@@ -329,7 +319,6 @@
 					if (++x === 5) {
 						//Остановка репиттера
 						clearInterval(translateInterval);
-						console.log("Stop translator");
 					}
 					$(listOf).each(function() {
 						text = $(this).html();
@@ -364,8 +353,6 @@
 		});
 		
 	});
-	
-	console.log("Отладка: rumiLang не пройден");
 	
 	//Facebook чат
 		chrome.storage.local.get("extensionMode",function (results){
