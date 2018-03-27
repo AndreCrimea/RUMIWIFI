@@ -28,13 +28,17 @@
 
 	if (good >= 1) {
 	//Попап поддержки
-	if (localStorage["payAlert"] != "close") {
-		$("#doc").append("<div class='patreonPay'>Если у Вас есть возможность поддержать плагин RUMIWIFI финансово, то <a href='https://www.patreon.com/bePatron?c=1639915' target='_blank' title='Страница Patreon'>Поддержите его на Patreon</a>. Если только морально, то <a href='https://chrome.google.com/webstore/detail/rumiwifi/mbiehbednoakmhlmjcpgpciocekdjabp/reviews' title='Поставить 5 звезд' target='_blank'>Поставьте плагину 5 звезд</a><span class='pClose'>×</span></div>");
-		$(".pClose").on("click", function() {
-			localStorage["payAlert"] = "close";
-			$(".patreonPay").fadeOut("slow");
-		});
-	}
+	chrome.storage.local.get("payAlert", function(results) {
+		payAlert = results.payAlert;
+		if (!payAlert) payAlert = "open";
+		if (payAlert != "close") {
+			$("#doc").append("<div class='patreonPay'>Поддержи плагин RUMIWIFI финансово: <a href='https://www.patreon.com/rumiwifi' target='_blank' title='Страница Patreon'>Копим на роутер</a>. Или морально: <a href='https://chrome.google.com/webstore/detail/rumiwifi/mbiehbednoakmhlmjcpgpciocekdjabp/reviews' title='Поставить 5 звезд' target='_blank'>Поставь плагину 5 звезд</a><span class='pClose'>×</span></div>");
+			$(".pClose").on("click", function() {
+				chrome.storage.local.set({"payAlert":"close"});
+				$(".patreonPay").fadeOut("slow");
+			});
+		}
+	});
 		
 	//Язык
 	chrome.storage.local.get("rumiLang", function(results) {
