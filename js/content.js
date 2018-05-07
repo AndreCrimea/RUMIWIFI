@@ -315,6 +315,7 @@
 			listOf += "#bandlist tr td:contains('没有设置信息'),";
 			listOf += "#upnplist tr td:contains('没有UPnP设备'),";
 			listOf += ".dialog-datetime #btnGetNowDate:contains('当前时间'),";
+			listOf += ".dialog-datetime #hour:contains('时'),";
 			listOf += "#btnBandset span:contains('限速设置')";
 			
 			//Базовые замены
