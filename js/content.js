@@ -314,7 +314,7 @@
 			listOf += "#natlist_port tr td:contains('TCP和UDP'),";
 			listOf += "#bandlist tr td:contains('没有设置信息'),";
 			listOf += "#upnplist tr td:contains('没有UPnP设备'),";
-			listOf += "#btnGetNowDate:contains('当前时间'),";
+			listOf += ".dialog-datetime #btnGetNowDate:contains('当前时间'),";
 			listOf += "#btnBandset span:contains('限速设置')";
 			
 			//Базовые замены
