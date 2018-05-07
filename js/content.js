@@ -1,5 +1,4 @@
 (function () {
-	
 	//Функция замены текста
 	$myfn = function(target, result, selector) {
 		var object = $(selector+":contains("+target+")");
@@ -21,24 +20,34 @@
 	
 	domain = location.host;
 	if (domain == "miwifi.com") good = 1;
-	
 	title = $(document).find("title").text();
 	if (title == "小米路由器") good = 2;
-	
 	if ($("#wechatcode").text() == "官方微信") good = 3;
-	
 	if ($(".flash-tips h3").text() == "正在升级中") good = 4;
-	
+	if ($("head:contains('miwifi.com')").length > 0) good = 5;
+
 	if (good >= 1) {
-	
+	//Попап поддержки
+	chrome.storage.local.get("payAlert", function(results) {
+		payAlert = results.payAlert;
+		if (!payAlert) payAlert = "open";
+		if (payAlert != "close") {
+			$("#doc").append("<div class='patreonPay'>Поддержи плагин RUMIWIFI финансово: <a href='https://www.patreon.com/rumiwifi' target='_blank' title='Страница Patreon'>Копим на роутер</a>. Или морально: <a href='https://chrome.google.com/webstore/detail/rumiwifi/mbiehbednoakmhlmjcpgpciocekdjabp/reviews' title='Поставить 5 звезд' target='_blank'>Поставь плагину 5 звезд</a><span class='pClose'>×</span></div>");
+			$(".pClose").on("click", function() {
+				chrome.storage.local.set({"payAlert":"close"});
+				$(".patreonPay").fadeOut("slow");
+			});
+		}
+	});
+		
 	//Язык
-	chrome.storage.local.get("rumiLang",function (results){
+	chrome.storage.local.get("rumiLang", function(results) {
 		lang = results.rumiLang;
 		if (!lang) lang = "ru";
-		
 		langFile = chrome.extension.getURL("lang/" + lang + ".json");
-		$.get(langFile, function(response) {
-			obj = JSON.parse(response);
+		
+		$.getJSON(langFile, function(data) {
+			obj = data;
 			//span.v:contains('小'), span.v:contains('分'), span:contains('特'), .d-bd:contains('重'), p:contains('手'),
 			listOf = ".devnetinfo li span.v:contains('小'),";
 			listOf += "h3:contains('更'),";
@@ -306,7 +315,7 @@
 			listOf += "#bandlist tr td:contains('没有设置信息'),";
 			listOf += "#upnplist tr td:contains('没有UPnP设备'),";
 			listOf += "#btnBandset span:contains('限速设置')";
-		
+			
 			//Базовые замены
 			$(listOf).each(function() {
 				text = $(this).html();
@@ -323,7 +332,6 @@
 					if (++x === 5) {
 						//Остановка репиттера
 						clearInterval(translateInterval);
-						console.log("Stop translator");
 					}
 					$(listOf).each(function() {
 						text = $(this).html();
@@ -359,7 +367,7 @@
 		
 	});
 	
-	//VK чат
+	//Facebook чат
 		chrome.storage.local.get("extensionMode",function (results){
 			var mode = results.extensionMode;
 			if (mode != 0) {
@@ -393,4 +401,8 @@
 		$(".mod-set .hd h3").css("width", "auto");
 		
 	}
+	//Контрольный Opacity
+	setTimeout (function(){
+		$("#doc").css({"opacity": "1"});
+	}, 2000);
 })()
